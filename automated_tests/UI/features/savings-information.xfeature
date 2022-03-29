@@ -1,0 +1,162 @@
+Feature: Verify the Savings Information screen
+
+  Scenario: R1S9_TC07.01_EXP928_MV_[WL]SavingsInformationUI_Verify that a Subtitle is displayed below the Sub header
+    Given I open the default Whole Life Application on an "iPhone X" device
+    When I click the button for "I Agree"
+    # And I set the "Age" field to "35" in the Personal Information screen
+    And I click the "M" text
+    And I click the "S" text
+    When I click the "Next" text
+    Then I should see "Please provide your savings information." as a "text"
+
+  Scenario: R1S9_TC07.02_EXP928_MV_[WL]SavingsInformationUI_Verify that the Subtitle below the sub header matches the Subtitle set in the configurator
+    Then I should see "Please provide your savings information." as a "text"
+
+  Scenario: R1S9_TC07.03_EXP928_MV_[WL]SavingsInformationUI_Verify that the Subtitle below the sub header is displayed left-aligned with bold characters
+    Then the "font-weight" css element should be "700" for the "Please provide your savings information." in the Savings Information screen
+
+  Scenario: R1S9_TC07.04_EXP928_MV_[WL]SavingsInformationUI_Verify that the Subtitle's font color matches the Theme color set in the configurator
+    Then the "color" css element should be "#3b8cff" for the "Please provide your savings information." in the Savings Information screen
+
+  Scenario: R1S9_TC07.05_EXP928_MV_[WL]SavingsInformationUI_Verify that the Subtitle's font style matches the font style set in the configurator
+    Then the "font-family" css element should be "noto-sans-display" for the "Please provide your savings information." in the Savings Information screen
+
+  Scenario: R1S9_TC07.06_EXP928_MV_[WL]SavingsInformationUI_Verify that the 'Monthly Savings Amount' label is displayed below the subtitle
+    Then I should see "Monthly Savings Amount" as a "text"
+
+  Scenario: R1S9_TC07.06_EXP928_MV_[WL]SavingsInformationUI_Verify that the 'Monthly Savings Amount' label is displayed below the subtitle
+    Then I should see "Monthly Savings Amount" as a "text"
+
+  Scenario: R1S9_TC07.07_EXP928_MV_[WL]SavingsInformationUI_Verify that the 'Monthly Savings Amount' input box is displayed below the 'Monthly Savings Amount' label
+    Then I should see the "Monthly Savings Amount" field in the Savings Information screen
+
+  Scenario: R1S9_TC07.08_EXP928_MV_[WL]SavingsInformationUI_Verify that the 'Monthly Savings Amount' input box has a currency symbol on the left side
+    Then the Monthly Savings Amount field should have a "$" symbol
+
+  Scenario: R1S9_TC07.09_EXP928_MV_[WL]SavingsInformationUI_Verify that the ‘Saving Goals’ label is displayed below the numerical input for Monthly Savings Amount
+    Then I should see "Savings Goals" as a "text"
+
+  Scenario: R1S9_TC07.11_EXP928_MV_[WL]SavingsInformationUI_Verify that the ‘Education’ card is displayed below the ‘Saving Goals’ label
+    Then I should see "Education" as a "text"
+
+  Scenario: R1S9_TC07.12_EXP928_MV_[WL]SavingsInformationUI_Verify that the 'Major Life Event' card is displayed below the 'Education' Card
+    Then I should see "Major Life Event" as a "text"
+
+  Scenario: R1S9_TC07.13_EXP928_MV_[WL]SavingsInformationUI_Verify that the 'Retirement' card is displayed below the 'Major Life Event' Card
+    Then I should see "Retirement" as a "text"
+
+  Scenario: R1S9_TC07.14_EXP928_MV_[WL]SavingsInformationUI_Verify that the 'Estate Transition' card is displayed below the 'Retirement' Card
+    Then I should see "Estate Transition" as a "text"
+
+  Scenario: R1S9_TC07.15_EXP928_MV_[WL]SavingsInformationUI_Verify that the ‘Calculate’ button is displayed center-aligned below the ‘Estate Transition’ card
+    Then I should see "Calculate" as a "button"
+
+  Scenario: R1S9_TC07.16_EXP928_MV_[WL]SavingsInformationUI_Verify that the ‘Calculate’ button's Fill color is #98c255
+    When I enter "1000" on the Monthly Savings Amount field in the Savings Information screen
+    Then the "background-color" css element should be "#0058d4" for the "Calculate button" in the Savings Information screen
+
+  Scenario: R1S9_TC07.17_EXP928_MV_[WL]SavingsInformationUI_Verify that the ‘Calculate’ button's label matches the button label set in the configurator
+    Then I should see "Calculate" as a "text"
+
+  Scenario: R1S9_TC07.18_EXP928_MV_[WL]SavingsInformationUI_Verify that the ‘Calculate’ button's Font color is #FFFFFF
+    Then the "color" css element should be "#ffffff" for the "Calculate" in the Savings Information screen
+
+  Scenario: R1S9_TC07.19_EXP928_MV_[WL]SavingsInformationUI_Verify that the ‘Calculate’ button's Font style matches the font style set in the configurator
+    Then the "font-family" css element should be "noto-sans-display" for the "Calculate" in the Savings Information screen
+
+  Scenario: R1S9_TC07.23_EXP928_MV_[WL]SavingsInformationUI_Verify that the ‘Calculate’ button is in Active state by default
+    Then the "background-color" css element should be "#0058d4" for the "Calculate button" in the Savings Information screen
+
+  Scenario: R1S11_TC16.03_EXP932_MV_[WL]SliderFeature_Verify that additional 1 year will be added in the Age of Event minimum value in Saving Information page (Estate Transition)
+    Then I should see the "Minimum" value of the slider for the "Estate Transition" goal is "36"
+
+  Scenario: R1S11_TC16.01_EXP932_MV_[WL]SliderFeature_Verify that additional 1 year will be added in the Age of Event minimum value in Saving Information page (Education)
+    When I toggle the switch for "Education" in the Savings Goals section
+    Then I should see the "Minimum" value of the slider for the "Education" goal is "36"
+    When I toggle the switch for "Education" in the Savings Goals section
+
+  Scenario: R1S11_TC16.02_EXP932_MV_[WL]SliderFeature_Verify that additional 1 year will be added in the Age of Event minimum value in Saving Information page (Major Life Event)
+    When I toggle the switch for "Major Life Event" in the Savings Goals section
+    Then I should see the "Minimum" value of the slider for the "Major Life Event" goal is "36"
+    When I toggle the switch for "Major Life Event" in the Savings Goals section
+
+  Scenario: R1S11_TC16.04_EXP932_MV_[WL]SliderFeature_Verify that additional 1 year will be added in the Age of Event minimum value in Saving Information page (Retirement)
+    When I toggle the switch for "Retirement" in the Savings Goals section
+    Then I should see the "Minimum" value of the slider for the "Retirement" goal is "36"
+    When I toggle the switch for "Retirement" in the Savings Goals section
+
+  Scenario: R1S11_TC16.05_EXP932_MV_[WL]SliderFeature_Verify that the minimum saving goals of Estate Transition will be based on the higher inputs saving goals of Education
+    When I toggle the switch for "Education" in the Savings Goals section
+    And I set the Age of Event for the "Education" goal to "70"
+    Then I should see the "Minimum" value of the slider for the "Estate Transition" goal is "71"
+    And I toggle the switch for "Education" in the Savings Goals section
+
+  Scenario: R1S11_TC16.06_EXP932_MV_[WL]SliderFeature_Verify that the minimum saving goals of Estate Transition will be based on the higher inputs saving goals of Major Life Event
+    When I toggle the switch for "Major Life Event" in the Savings Goals section
+    And I set the Age of Event for the "Major Life Event" goal to "50"
+    Then I should see the "Minimum" value of the slider for the "Estate Transition" goal is "51"
+    And I toggle the switch for "Major Life Event" in the Savings Goals section
+
+  Scenario: R1S11_TC16.07_EXP932_MV_[WL]SliderFeature_Verify that the minimum saving goals of Estate Transition will be based on the higher inputs saving goals of Retirement
+    When I toggle the switch for "Education" in the Savings Goals section
+    And I set the Age of Event for the "Education" goal to "40"
+    Then I should see the "Minimum" value of the slider for the "Estate Transition" goal is "41"
+    And I toggle the switch for "Education" in the Savings Goals section
+
+  Scenario: R1S11_TC16.08_EXP932_MV_[WL]SliderFeature_Verify that the input value in Estate Transition will be less than 1 in maximum value in Education saving goals
+    When I toggle the switch for "Education" in the Savings Goals section
+    And I set the Age of Event for the "Estate Transition" goal to "65"
+    Then I should see the "Maximum" value of the slider for the "Education" goal is "64"
+    And I toggle the switch for "Education" in the Savings Goals section
+
+  Scenario: R1S11_TC16.09_EXP932_MV_[WL]SliderFeature_Verify that the input value in Estate Transition will be less than 1 in maximum value in Major Life Event saving goals
+    When I toggle the switch for "Major Life Event" in the Savings Goals section
+    And I set the Age of Event for the "Estate Transition" goal to "55"
+    Then I should see the "Maximum" value of the slider for the "Major Life Event" goal is "54"
+    And I toggle the switch for "Major Life Event" in the Savings Goals section
+
+  Scenario: R1S11_TC16.10_EXP932_MV_[WL]SliderFeature_Verify that the input value in Estate Transition will be less than 1 in maximum value in Retirement saving goals
+    When I toggle the switch for "Retirement" in the Savings Goals section
+    And I set the Age of Event for the "Estate Transition" goal to "85"
+    Then I should see the "Maximum" value of the slider for the "Retirement" goal is "84"
+    And I toggle the switch for "Retirement" in the Savings Goals section
+
+  Scenario: R1S11_TC17.01_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the Monthly Savings Amount should display error message when user inputs exceeds the amount of range
+    When I enter "1001" on the Monthly Savings Amount field in the Savings Information screen
+    Then I should see the error message for Monthly Savings Amount
+
+  Scenario: R1S11_TC17.02_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the Savings Goal should be display error message when more than 1 goal have at the same age
+    When I toggle the switch for "Education" in the Savings Goals section
+    And I toggle the switch for "Major Life Event" in the Savings Goals section
+    And I toggle the switch for "Retirement" in the Savings Goals section
+    And I set the Age of Event for the "Education" goal to "84"
+    And I set the Age of Event for the "Major Life Event" goal to "84"
+    And I set the Age of Event for the "Retirement" goal to "84"
+    Then I should see the Error Message for Multiple Same Age
+
+  Scenario: R1S11_TC17.03_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the Monthly Savings Amount filed error outline color is #DC5034
+    Then the "border-color" css element should be "#dc5034" for the "Monthly Savings Amount outline" in the Savings Information screen
+
+  Scenario: R1S11_TC17.04_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the Monthly Savings Amount filed is displayed at the left side of the application
+    Then the "text-align" css element should be "left" for the "Monthly Savings Amount error" in the Savings Information screen
+
+  Scenario: R1S11_TC17.05_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the 'Calculate' button's Default state (disabled) has a fill color of #BDBDBD
+    Then the "background-color" css element should be "#bdbdbd" for the "Calculate button" in the Savings Information screen
+
+  Scenario: R1S11_TC17.06_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the 'Calculate' button's is displayed at the center-aligned label with a font style set in the Configurator
+    Then the "text-align" css element should be "center" for the "Calculate button" in the Savings Information screen
+  
+  Scenario: R1S11_TC17.07_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the 'Calculate' button's must have a label with a font color: #FFFFFF
+    Then the "color" css element should be "#ffffff" for the "Calculate button" in the Savings Information screen
+
+  Scenario: R1S11_TC17.08_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the Outline of both the enabled saving goal fields with the same ‘age of event’ input values must be #DC5034
+    Then the "border-color" css element should be "#dc5034" for the "Education outline" in the Savings Information screen
+    Then the "border-color" css element should be "#dc5034" for the "Major Life Event outline" in the Savings Information screen
+    Then the "border-color" css element should be "#dc5034" for the "Retirement outline" in the Savings Information screen
+
+  Scenario: R1S11_TC17.09_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the Savings Goals is displayed error message must be left-aligned
+    Then the "text-align" css element should be "left" for the "Multiple Same Age Error" in the Savings Information screen
+
+  Scenario: R1S11_TC17.10_EXP934_MV_[WL]ErrorMessageInSavingInfoPage_Verify that the Savings Goal Error message Font color is #DC5034
+    Then the "color" css element should be "#dc5034" for the "Multiple Same Age Error" in the Savings Information screen
+

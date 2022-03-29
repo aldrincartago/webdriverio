@@ -1,0 +1,11 @@
+Feature: Verify the Quote Results Illustration screen
+
+  Scenario: R1S12_TC32.01_EXP951_[WL][BA][QA]GraphScrollBar_Verify that there are 30 or more vertical bars
+    Given I navigate to the Quote Results screen with a "30" year old age
+    When I click the "Illustration" text
+    Then I "should see" the Graph scroll bar
+    And I hit the "Escape" key
+    And I should see "60" vertical bars inside the graph
+
+  Scenario: R1S12_TC32.03_EXP951_[WL][BA][QA]GraphScrollBar_Verify that the color fill of the horizontal scroll bar track must be #E0E0E0
+    Then the "fill" css element should be "rgb(224,224,224)" for the "Horizontal scroll bar" in the Illustration screen
